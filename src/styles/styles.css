@@ -81,6 +81,31 @@ label, input, textarea, button {
     color: black;
 }
 
+.noteitem-button {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button-delete {
+    font-size: smaller;
+    background-color: #aa1f31;
+    color: white;
+
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid #aa1f31;
+}
+
+.button-arsip {
+    font-size: smaller;
+    background-color: #161D6F;
+    color: white;
+
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid #161D6F;
+}
+
 .btn:active {
     background-color: #98DED9;
     color: black;
@@ -109,6 +134,8 @@ input:user-invalid {
     border: 1px solid #333;
     border-radius: 8px;
 }
+
+
 
 
 

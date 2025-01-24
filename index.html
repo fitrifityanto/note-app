@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App</title>
-    <!-- <link rel="stylesheet" href="src/styles.css" > -->
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +31,7 @@
                         <p id="bodyValidation" class="validation-message" aria-live="polite"></p>
                     </div>
                     <div class="form-group">
-                        <button id="submit" class="btn">Submit</button>
+                        <button id="buttonSave" class="btn">Simpan</button>
                     </div>
                 </form>
             </section-with-title>
@@ -42,10 +41,26 @@
                 icon='<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h10q.425 0 .713.288T15 17t-.288.713T14 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"/></svg>'
             >
                 <div id="noteListContainer">
+                    <div id="note-loading" class="loading">
+                        Loading        
+                      </div>
                     <div id="noteList" class="note-list">
                         <div class="list"></div>
                     </div>
                 </div>
+            </section-with-title>
+
+            <section-with-title  title="Arsip Catatan"
+            icon='<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h10q.425 0 .713.288T15 17t-.288.713T14 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"/></svg>'
+            >
+            <div id="arsipListContainer">
+                <div id="arsip-loading" class="loading">
+                    Loading        
+                  </div>
+                <div id="arsipList" class="note-list">
+                    <div class="list"></div>
+                </div>
+            </div>
             </section-with-title>
 
         </div>
@@ -56,9 +71,5 @@
             <footer-bar></footer-bar>
         </div>
     </footer>
-
-
-    
-    <!-- <script type="module" src="./src/app.js"></script> -->
 </body>
 </html>

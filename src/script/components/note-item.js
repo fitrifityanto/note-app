@@ -12,12 +12,11 @@ class NoteItem extends HTMLElement {
     constructor() {
         super()
 
-        this._shadowRoot = this.attachShadow({ mode: 'open' })
         this._style = document.createElement('style')
     }
 
     _emptyContent() {
-        this._shadowRoot.innerHTML = ''
+        this.innerHTML = ''
     }
 
     set note(value) {
@@ -32,15 +31,18 @@ class NoteItem extends HTMLElement {
 
     _updateSytle() {
         this._style.textContent = `
-        :host {
-        display: block;
 
-        }
         .note-item {
             display: flex;
             flex-flow: column;
             justify-content: space-between;
+            gap: 1rem;
             height: 100%;
+        }
+        .note-item > .noteitem-main {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
         }
         .note-item > .noteitem-footer {
             font-size: smaller;
@@ -55,14 +57,18 @@ class NoteItem extends HTMLElement {
 
         const formattedDate = formatDate(this._note.createdAt)
 
-        this._shadowRoot.appendChild(this._style)
-        this._shadowRoot.innerHTML += `
+        this.appendChild(this._style)
+        this.innerHTML += `
             <div data-noteid="${this._note.id}" class="note-item">
-                <div>
+                <div class="noteitem-main">
                     <h3>${this._note.title}</h3>
                     <p>${this._note.body}</p>
                 </div>
                 <div class="noteitem-footer"><p>${formattedDate} </p>
+                </div>
+                <div class="noteitem-button">
+
+                 
                 </div>
             </div>
         `

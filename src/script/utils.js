@@ -9,3 +9,11 @@ export const formatDate = (isoString) => {
         minute: '2-digit',
     });
 };
+
+export const showLoading = (element) => {
+    element.style.display = 'block';
+  }
+  
+export const hideLoading = (element) => {
+    element.style.display = 'none';
+  }
