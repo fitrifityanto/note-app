@@ -1,14 +1,13 @@
 class AppBar extends HTMLElement {
-    
-    constructor() {
-        super()
+  constructor() {
+    super();
 
-        this._shadowRoot = this.attachShadow({ mode: 'open' })
-        this._style = document.createElement('style')
-    }
+    this._shadowRoot = this.attachShadow({ mode: "open" });
+    this._style = document.createElement("style");
+  }
 
-    _updateStyle() {
-        this._style.textContent = `
+  _updateStyle() {
+    this._style.textContent = `
         .app-bar {
             padding: 2rem 1.3rem;
         }
@@ -16,28 +15,28 @@ class AppBar extends HTMLElement {
         .app-bar .brand-name {
             font-size: 1.9em;
         }
-        `
-    }
+        `;
+  }
 
-    _emptyContent() {
-        this._shadowRoot.innerHTML = ''
-    }
+  _emptyContent() {
+    this._shadowRoot.innerHTML = "";
+  }
 
-    connectedCallback() {
-        this.render()
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this._emptyContent()
-        this._updateStyle()
+  render() {
+    this._emptyContent();
+    this._updateStyle();
 
-        this._shadowRoot.appendChild(this._style)
-        this._shadowRoot.innerHTML += `
+    this._shadowRoot.appendChild(this._style);
+    this._shadowRoot.innerHTML += `
             <div class="app-bar">
                 <h1 class="brand-name">Notes App</h1>
             </div>
-        `    
-    }
+        `;
+  }
 }
 
-customElements.define('app-bar', AppBar)
+customElements.define("app-bar", AppBar);

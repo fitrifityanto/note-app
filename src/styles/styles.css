@@ -1,147 +1,141 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'sora', sans-serif;
+  font-family: "sora", sans-serif;
 }
 
 header {
-    background-color: #98DED9;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  background-color: #98ded9;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 label {
-    display: inline-block;
-    margin-block-end: 0.3rem;
+  display: inline-block;
+  margin-block-end: 0.3rem;
 }
 
 input {
-    display: block;
-    padding: 0.5rem 0.5rem;
-    border: 1px solid black;
-    border-radius: 4px;
+  display: block;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
 
-    width: 100%;
+  width: 100%;
 }
 
 textarea {
-    width: 100%;
+  width: 100%;
 
-    padding: 0.5rem 0.5rem;
-    border: 1px solid black;
-    border-radius: 4px;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 button {
-    appearance: none;
-    -webkit-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
 
-    margin: 0;
-    padding: 0;
-    border: none;
+  margin: 0;
+  padding: 0;
+  border: none;
 
-    display: inline-block;
-    background: transparent;
+  display: inline-block;
+  background: transparent;
 
-    line-height: 1;
+  line-height: 1;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
-label, input, textarea, button {
-    font-size: 1rem;
-    transition: all 300ms linear;
+label,
+input,
+textarea,
+button {
+  font-size: 1rem;
+  transition: all 300ms linear;
 }
 
 .container {
-    max-width: 900px;
-    padding-inline: 1rem;
-    padding-block: 2rem;
-    margin-inline: auto;
+  max-width: 900px;
+  padding-inline: 1rem;
+  padding-block: 2rem;
+  margin-inline: auto;
 }
 
 .form-group {
-    padding-block: 0.3rem;
+  padding-block: 0.3rem;
 }
 
 .btn {
-    background-color: #161D6F;
-    color: white;
+  background-color: #161d6f;
+  color: white;
 
-    border-radius: 0.3rem;
-    padding: 0.5rem 1.5rem;
-    border: 1px solid #161D6F;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #161d6f;
 }
 
 .btn:hover {
-    background-color: #98DED9;
-    color: black;
+  background-color: #98ded9;
+  color: black;
 }
 
 .noteitem-button {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .button-delete {
-    font-size: smaller;
-    background-color: #aa1f31;
-    color: white;
+  font-size: smaller;
+  background-color: #aa1f31;
+  color: white;
 
-    border-radius: 0.3rem;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid #aa1f31;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #aa1f31;
 }
 
 .button-arsip {
-    font-size: smaller;
-    background-color: #161D6F;
-    color: white;
+  font-size: smaller;
+  background-color: #161d6f;
+  color: white;
 
-    border-radius: 0.3rem;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid #161D6F;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #161d6f;
 }
 
 .btn:active {
-    background-color: #98DED9;
-    color: black;
+  background-color: #98ded9;
+  color: black;
 }
 
 .validation-message {
-    margin-block-start: 0.5rem;
-    color: red;
+  margin-block-start: 0.5rem;
+  color: red;
 }
 
 input:user-invalid {
-    border: 1px solid red
+  border: 1px solid red;
 }
 
 .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: auto;
-    gap: 1rem;
-  
-    
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: auto;
+  gap: 1rem;
 }
 
 .list > * {
-    padding: 4px 8px;
-    border: 1px solid #333;
-    border-radius: 8px;
+  padding: 4px 8px;
+  border: 1px solid #333;
+  border-radius: 8px;
 }
-
-
-
-
 
 footer {
-    background-color: #C7FFD8;
-
+  background-color: #c7ffd8;
 }
-
-
