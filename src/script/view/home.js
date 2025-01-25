@@ -13,7 +13,7 @@ const getNote = async () => {
   const noteListElement = noteListContainerElement.querySelector("#noteList");
   const listElement = noteListElement.querySelector(".list");
 
-  const loading = document.querySelector("#note-loading");
+  const loading = document.querySelector(`[notetitle="note-loading"]`);
 
   listElement.innerHTML = "";
   showLoading(loading);
@@ -43,7 +43,7 @@ const getArsip = async () => {
     arsipListContainerElement.querySelector("#arsipList");
   const listElement = arsipListElement.querySelector(".list");
 
-  const loading = document.querySelector("#arsip-loading");
+  const loading = document.querySelector(`[notetitle="arsip-loading"]`);
 
   listElement.innerHTML = "";
   showLoading(loading);
@@ -78,7 +78,6 @@ const insertNote = async (note) => {
     const response = await fetch(`${baseUrl}/notes`, options);
     const data = await response.json();
 
-    showResponseMessage(data.message, "success");
     await getNote();
   } catch (error) {
     showResponseMessage(error, "error");
@@ -103,7 +102,6 @@ const archiveNote = async (noteId) => {
     const response = await fetch(`${baseUrl}/notes/${noteId}/archive`, options);
     const data = await response.json();
 
-    showResponseMessage(data.message, "success");
     await getNote();
     await getArsip();
   } catch (error) {
@@ -132,7 +130,6 @@ const unarchiveNote = async (noteId) => {
     );
     const data = await response.json();
 
-    showResponseMessage(data.message, "success");
     await getNote();
     await getArsip();
   } catch (error) {
@@ -156,7 +153,6 @@ const removeNote = async (noteId) => {
 
     await animeOutFromNote(noteItem);
 
-    showResponseMessage(data.message, "success");
     await getNote();
     await getArsip();
   } catch (error) {
@@ -223,7 +219,7 @@ const displayNotes = (notes) => {
     const spanIconDelete = document.createElement("span");
     spanIconDelete.classList.add("mdi--delete");
     deleteButton.title = "Hapus";
-    // deleteButton.classList.add("button-delete");
+
     deleteButton.addEventListener("click", async () => {
       const isConfirmed = await alertConfirm(
         "Yakin ingin menghapus catatan ini?",
