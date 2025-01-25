@@ -1,4 +1,4 @@
-const anime = require('animejs').default
+const anime = require("animejs").default;
 
 export const formatDate = (isoString) => {
   const date = new Date(isoString);
@@ -22,19 +22,19 @@ export const hideLoading = (element) => {
 export const animeToNote = (element) => {
   anime({
     targets: element,
-    opacity: [0, 1], 
-    translateY: [-20, 0], 
-    duration: 600, 
+    opacity: [0, 1],
+    translateY: [-20, 0],
+    duration: 600,
     easing: "easeOutQuad",
   });
-}
+};
 
 export const animeOutFromNote = (element) => {
   anime({
-        targets: element,
-        scale: [1, 0],
-        opacity: [1, 0],
-        duration: 500,
-        easing: "easeInQuad",
-      }).finished;
-}
+    targets: element,
+    scale: [1, 0],
+    opacity: [1, 0],
+    duration: 500,
+    easing: "easeInQuad",
+  }).finished;
+};

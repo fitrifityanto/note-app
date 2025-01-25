@@ -1,6 +1,10 @@
-import { showLoading, hideLoading, animeToNote, animeOutFromNote } from "../utils.js";
+import {
+  showLoading,
+  hideLoading,
+  animeToNote,
+  animeOutFromNote,
+} from "../utils.js";
 const Swal = require("sweetalert2");
-const anime = require('animejs').default
 
 const baseUrl = "https://notes-api.dicoding.dev/v2";
 
@@ -83,9 +87,9 @@ const insertNote = async (note) => {
 
 const archiveNote = async (noteId) => {
   const noteItem = document.querySelector(`[data-noteid="${noteId}"]`);
-  if (!noteItem) return; 
+  if (!noteItem) return;
 
-  await animeOutFromNote(noteItem)
+  await animeOutFromNote(noteItem);
 
   try {
     const options = {
@@ -109,9 +113,9 @@ const archiveNote = async (noteId) => {
 
 const unarchiveNote = async (noteId) => {
   const noteItem = document.querySelector(`[data-noteid="${noteId}"]`);
-  if (!noteItem) return; 
+  if (!noteItem) return;
 
-  await animeOutFromNote(noteItem)
+  await animeOutFromNote(noteItem);
 
   try {
     const options = {
@@ -138,7 +142,7 @@ const unarchiveNote = async (noteId) => {
 
 const removeNote = async (noteId) => {
   const noteItem = document.querySelector(`[data-noteid="${noteId}"]`);
-  if (!noteItem) return; 
+  if (!noteItem) return;
   try {
     const options = {
       method: "DELETE",
@@ -150,7 +154,7 @@ const removeNote = async (noteId) => {
     const response = await fetch(`${baseUrl}/notes/${noteId}`, options);
     const data = await response.json();
 
-    await animeOutFromNote(noteItem)
+    await animeOutFromNote(noteItem);
 
     showResponseMessage(data.message, "success");
     await getNote();
@@ -195,8 +199,6 @@ const alertConfirm = async (
   return result.isConfirmed;
 };
 
-
-
 const displayNotes = (notes) => {
   const containerElement = document.querySelector("#noteListContainer");
   const listElement = containerElement.querySelector(".list");
@@ -210,16 +212,16 @@ const displayNotes = (notes) => {
     const buttonContainer = noteItemElement.querySelector(".noteitem-button");
 
     const archiveButton = document.createElement("button");
-    const spanIcon = document.createElement('span')
-    spanIcon.classList.add("mdi--archive-arrow-down")
+    const spanIcon = document.createElement("span");
+    spanIcon.classList.add("mdi--archive-arrow-down");
     archiveButton.title = "Arsipkan";
     archiveButton.addEventListener("click", () => archiveNote(note.id));
     buttonContainer.appendChild(archiveButton);
-    archiveButton.appendChild(spanIcon)
+    archiveButton.appendChild(spanIcon);
 
     const deleteButton = document.createElement("button");
-    const spanIconDelete = document.createElement('span')
-    spanIconDelete.classList.add("mdi--delete")
+    const spanIconDelete = document.createElement("span");
+    spanIconDelete.classList.add("mdi--delete");
     deleteButton.title = "Hapus";
     // deleteButton.classList.add("button-delete");
     deleteButton.addEventListener("click", async () => {
@@ -231,12 +233,11 @@ const displayNotes = (notes) => {
       if (isConfirmed) removeNote(note.id);
     });
     buttonContainer.appendChild(deleteButton);
-    deleteButton.appendChild(spanIconDelete)
+    deleteButton.appendChild(spanIconDelete);
 
     listElement.appendChild(noteItemElement);
 
-    animeToNote(noteItemElement)
-
+    animeToNote(noteItemElement);
   });
 };
 
@@ -253,16 +254,16 @@ const displayArsipNotes = (notes) => {
     const buttonContainer = noteItemElement.querySelector(".noteitem-button");
 
     const archiveButton = document.createElement("button");
-    const spanIcon = document.createElement('span')
-    spanIcon.classList.add("mdi--archive-arrow-up")
+    const spanIcon = document.createElement("span");
+    spanIcon.classList.add("mdi--archive-arrow-up");
     archiveButton.title = "Batalkan Arsip";
     archiveButton.addEventListener("click", () => unarchiveNote(note.id));
     buttonContainer.appendChild(archiveButton);
-    archiveButton.appendChild(spanIcon)
+    archiveButton.appendChild(spanIcon);
 
     const deleteButton = document.createElement("button");
-    const spanIconDelete = document.createElement('span')
-    spanIconDelete.classList.add("mdi--delete")
+    const spanIconDelete = document.createElement("span");
+    spanIconDelete.classList.add("mdi--delete");
     deleteButton.title = "Hapus";
     deleteButton.title = "Hapus";
     deleteButton.addEventListener("click", async () => {
@@ -274,10 +275,10 @@ const displayArsipNotes = (notes) => {
       if (isConfirmed) removeNote(note.id);
     });
     buttonContainer.appendChild(deleteButton);
-    deleteButton.appendChild(spanIconDelete)
+    deleteButton.appendChild(spanIconDelete);
 
     listElement.appendChild(noteItemElement);
-    animeToNote(noteItemElement)
+    animeToNote(noteItemElement);
   });
 };
 

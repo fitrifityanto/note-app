@@ -93,26 +93,6 @@ button {
   gap: 0.5rem;
 }
 
-/* .button-delete {
-  font-size: smaller;
-  background-color: #aa1f31;
-  color: white;
-
-  border-radius: 0.3rem;
-  padding: 0.3rem 0.8rem;
-  border: 1px solid #aa1f31;
-} */
-
-/* .button-arsip {
-  font-size: smaller;
-  background-color: #161d6f;
-  color: white;
-
-  border-radius: 0.3rem;
-  padding: 0.3rem 0.8rem;
-  border: 1px solid #161d6f;
-} */
-
 .btn:active {
   background-color: #98ded9;
   color: black;
@@ -137,11 +117,11 @@ input:user-invalid {
 .loading {
   display: block;
   width: 250px;
-  height: 100px; 
-  border-radius: 8px; 
+  height: 100px;
+  border-radius: 8px;
   background: linear-gradient(45deg, #dcdcdc, #f0f0f0, #e0e0e0, #dcdcdc);
-  background-size: 400% 400%; 
-  animation: gradientAnimation 4s ease infinite; 
+  background-size: 400% 400%;
+  animation: gradientAnimation 4s ease infinite;
 }
 
 @keyframes gradientAnimation {
@@ -159,7 +139,6 @@ input:user-invalid {
 footer {
   background-color: #c7ffd8;
 }
-
 
 .mdi--archive-arrow-down {
   display: inline-block;
