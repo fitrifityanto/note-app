@@ -37,6 +37,10 @@ class NoteItem extends HTMLElement {
             justify-content: space-between;
             gap: 1rem;
             height: 100%;
+
+            padding: 4px 8px;
+            border: 1px solid #333;
+            border-radius: 8px;
         }
         .note-item > .noteitem-main {
             display: flex;
