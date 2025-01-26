@@ -9,7 +9,7 @@ class AppBar extends HTMLElement {
   _updateStyle() {
     this._style.textContent = `
         .app-bar {
-            padding: 2rem 1.3rem;
+            padding: 1rem 1.3rem;
         }
 
         .app-bar .brand-name {

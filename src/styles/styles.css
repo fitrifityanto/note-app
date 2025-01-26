@@ -6,11 +6,53 @@
 
 body {
   font-family: "sora", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 header {
   background-color: #98ded9;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+aside {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.4rem;
+}
+
+aside a {
+  text-decoration: none;
+  margin-bottom: 1rem;
+  color: black;
+  transition: color 0.3s;
+}
+
+aside a:hover {
+  color: #161d6f;
+}
+
+main {
+  width: 100%;
+
+  overflow-y: auto;
+  padding: 1rem;
 }
 
 label {
@@ -60,10 +102,10 @@ button {
 }
 
 .container {
-  max-width: 900px;
+  /* max-width: 900px; */
   padding-inline: 1rem;
   padding-block: 2rem;
-  margin-inline: auto;
+  /* margin-inline: auto; */
 
   display: flex;
   flex-direction: column;
@@ -180,4 +222,15 @@ footer {
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100%;
+    padding: 0.7rem;
+  }
 }
