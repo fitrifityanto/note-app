@@ -8,7 +8,7 @@
   },
   "author": "fitriningtyas",
   "license": "ISC",
-  "description": "",
+  "description": "notes App menggunakan web Component, webpack",
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
