@@ -6,9 +6,7 @@ export default function Layout(content) {
 
     <div class="content">
       <aside>
-        <a id="showNotes">Daftar catatan</a>
-        <a id="showArchive">Arsip catatan</a>
-        <a id="showFormAdd">Tambah catatan</a>
+        <link-bar></link-bar>
       </aside>
       <main>
         ${content}

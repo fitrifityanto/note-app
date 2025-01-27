@@ -31,20 +31,28 @@ header {
 }
 
 aside {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
+  width: 250px;
   padding: 2rem 1.4rem;
 }
 
-aside a {
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a {
   text-decoration: none;
   margin-bottom: 1rem;
   color: black;
   transition: color 0.3s;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-aside a:hover {
+.sidebar a:hover {
   color: #161d6f;
 }
 
@@ -231,6 +239,6 @@ footer {
 
   aside {
     width: 100%;
-    padding: 0.7rem;
+    padding: 1rem;
   }
 }

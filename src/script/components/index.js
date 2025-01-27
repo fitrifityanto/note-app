@@ -1,4 +1,5 @@
 import "./app-bar.js";
+import "./link-bar.js";
 import "./footer-bar.js";
 
 import "./section-with-title.js";
