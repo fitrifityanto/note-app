@@ -39,7 +39,8 @@ class NoteItem extends HTMLElement {
             height: 100%;
 
             padding: 4px 8px;
-            border: 1px solid #333;
+             background-color: white;
+             box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
             border-radius: 8px;
         }
         .note-item > .noteitem-main {

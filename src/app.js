@@ -36,13 +36,16 @@ function setupEventListerners() {
     const inputBody = document.querySelector("#body");
     const buttonSave = document.querySelector("#buttonSave");
 
-    buttonSave.addEventListener("click", function () {
+    buttonSave.addEventListener("click", async function () {
       const note = {
         title: inputTitle.value,
         body: inputBody.value,
       };
 
-      insertNote(note);
+      await insertNote(note);
+
+      inputTitle.value = "";
+      inputBody.value = "";
     });
   });
 }
