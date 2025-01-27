@@ -1,76 +1,82 @@
-const form = document.querySelector("form");
+export function validation() {
+  const form = document.querySelector("form");
 
-const titleInput = form.elements["title"];
-const bodyTextarea = form.elements["body"];
+  if (!form) return;
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-});
+  const titleInput = form.elements["title"];
+  const bodyTextarea = form.elements["body"];
 
-const customValidationTitleHandler = (event) => {
-  event.target.setCustomValidity("");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
 
-  if (event.target.validity.valueMissing) {
-    event.target.setCustomValidity("wajib diisi");
-    return;
-  }
+  const customValidationTitleHandler = (event) => {
+    event.target.setCustomValidity("");
 
-  if (event.target.validity.tooShort) {
-    event.target.setCustomValidity("minimal panjang karakter Judul adalah 10");
-    return;
-  }
-  event.target.reportValidity();
-};
+    if (event.target.validity.valueMissing) {
+      event.target.setCustomValidity("wajib diisi");
+      return;
+    }
 
-const customValidationBodyHandler = (event) => {
-  event.target.setCustomValidity("");
+    if (event.target.validity.tooShort) {
+      event.target.setCustomValidity(
+        "minimal panjang karakter Judul adalah 10",
+      );
+      return;
+    }
+    event.target.reportValidity();
+  };
 
-  if (event.target.validity.valueMissing) {
-    event.target.setCustomValidity("wajib diisi");
-    return;
-  }
+  const customValidationBodyHandler = (event) => {
+    event.target.setCustomValidity("");
 
-  if (event.target.validity.tooShort) {
-    event.target.setCustomValidity(
-      "minimal panjang karakter Isi catatan adalah 20",
-    );
-    return;
-  }
+    if (event.target.validity.valueMissing) {
+      event.target.setCustomValidity("wajib diisi");
+      return;
+    }
 
-  if (event.target.validity.tooLong) {
-    event.target.setCustomValidity(
-      "maksimal panjang karakter Isi catatan adalah 200",
-    );
-    return;
-  }
-};
+    if (event.target.validity.tooShort) {
+      event.target.setCustomValidity(
+        "minimal panjang karakter Isi catatan adalah 20",
+      );
+      return;
+    }
 
-titleInput.addEventListener("change", customValidationTitleHandler);
-titleInput.addEventListener("invalid", customValidationTitleHandler);
+    if (event.target.validity.tooLong) {
+      event.target.setCustomValidity(
+        "maksimal panjang karakter Isi catatan adalah 200",
+      );
+      return;
+    }
+  };
 
-bodyTextarea.addEventListener("change", customValidationBodyHandler);
-bodyTextarea.addEventListener("invalid", customValidationBodyHandler);
+  titleInput.addEventListener("change", customValidationTitleHandler);
+  titleInput.addEventListener("invalid", customValidationTitleHandler);
 
-titleInput.addEventListener("blur", (event) => {
-  validateInput(event);
-});
+  bodyTextarea.addEventListener("change", customValidationBodyHandler);
+  bodyTextarea.addEventListener("invalid", customValidationBodyHandler);
 
-bodyTextarea.addEventListener("blur", (event) => {
-  validateInput(event);
-});
+  titleInput.addEventListener("blur", (event) => {
+    validateInput(event);
+  });
 
-const validateInput = (event) => {
-  const isValaid = event.target.validity.valid;
-  const errorMessage = event.target.validationMessage;
+  bodyTextarea.addEventListener("blur", (event) => {
+    validateInput(event);
+  });
 
-  const connectedValidationId = event.target.getAttribute("aria-describedby");
-  const connectedValidationEl = connectedValidationId
-    ? document.getElementById(connectedValidationId)
-    : null;
+  const validateInput = (event) => {
+    const isValaid = event.target.validity.valid;
+    const errorMessage = event.target.validationMessage;
 
-  if (connectedValidationEl && errorMessage && !isValaid) {
-    connectedValidationEl.innerText = errorMessage;
-  } else {
-    connectedValidationEl.innerText = "";
-  }
-};
+    const connectedValidationId = event.target.getAttribute("aria-describedby");
+    const connectedValidationEl = connectedValidationId
+      ? document.getElementById(connectedValidationId)
+      : null;
+
+    if (connectedValidationEl && errorMessage && !isValaid) {
+      connectedValidationEl.innerText = errorMessage;
+    } else {
+      connectedValidationEl.innerText = "";
+    }
+  };
+}

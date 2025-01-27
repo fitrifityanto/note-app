@@ -4,6 +4,9 @@ import {
   animeToNote,
   animeOutFromNote,
 } from "../utils.js";
+import { renderPage } from "../../app.js";
+import NoteListPage from "../noteListPage.js";
+
 const Swal = require("sweetalert2");
 
 const baseUrl = "https://notes-api.dicoding.dev/v2";
@@ -77,8 +80,7 @@ const insertNote = async (note) => {
 
     const response = await fetch(`${baseUrl}/notes`, options);
     const data = await response.json();
-
-    await getNote();
+    showResponseMessage(data.message, "success");
   } catch (error) {
     showResponseMessage(error, "error");
   }
@@ -101,9 +103,8 @@ const archiveNote = async (noteId) => {
 
     const response = await fetch(`${baseUrl}/notes/${noteId}/archive`, options);
     const data = await response.json();
-
     await getNote();
-    await getArsip();
+    showResponseMessage(data.message, "success");
   } catch (error) {
     showResponseMessage(error, "error");
   }
@@ -129,15 +130,14 @@ const unarchiveNote = async (noteId) => {
       options,
     );
     const data = await response.json();
-
-    await getNote();
+    showResponseMessage(data.message, "success");
     await getArsip();
   } catch (error) {
     showResponseMessage(error, "error");
   }
 };
 
-const removeNote = async (noteId) => {
+const removeNote = async (noteId, callback) => {
   const noteItem = document.querySelector(`[data-noteid="${noteId}"]`);
   if (!noteItem) return;
   try {
@@ -153,8 +153,7 @@ const removeNote = async (noteId) => {
 
     await animeOutFromNote(noteItem);
 
-    await getNote();
-    await getArsip();
+    if (callback) callback();
   } catch (error) {
     showResponseMessage(error, "error");
   }
@@ -226,7 +225,11 @@ const displayNotes = (notes) => {
         "Hapus",
         "batal",
       );
-      if (isConfirmed) removeNote(note.id);
+      if (isConfirmed) {
+        await removeNote(note.id, () => {
+          getNote();
+        });
+      }
     });
     buttonContainer.appendChild(deleteButton);
     deleteButton.appendChild(spanIconDelete);
@@ -268,7 +271,11 @@ const displayArsipNotes = (notes) => {
         "Hapus",
         "batal",
       );
-      if (isConfirmed) removeNote(note.id);
+      if (isConfirmed) {
+        await removeNote(note.id, () => {
+          getArsip();
+        });
+      }
     });
     buttonContainer.appendChild(deleteButton);
     deleteButton.appendChild(spanIconDelete);
