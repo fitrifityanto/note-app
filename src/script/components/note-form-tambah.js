@@ -36,7 +36,7 @@ class NoteFormTambah extends HTMLElement {
               <textarea
                 id="body"
                 name="body"
-                rows="4"
+                rows="6"
                 minlength="20"
                 maxlength="200"
                 aria-describedby="bodyValidation"

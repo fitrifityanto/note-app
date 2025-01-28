@@ -9,6 +9,7 @@ class FooterBar extends HTMLElement {
   _updateStyle() {
     this._style.textContent = `
         .main-footer {
+            padding-block: 1rem;
             text-align: center;
             font-size: 0.8rem;
         }

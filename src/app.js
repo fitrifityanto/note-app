@@ -37,15 +37,20 @@ function setupEventListerners() {
     const buttonSave = document.querySelector("#buttonSave");
 
     buttonSave.addEventListener("click", async function () {
+      const form = document.querySelector("form");
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       const note = {
         title: inputTitle.value,
         body: inputBody.value,
       };
-
       await insertNote(note);
 
-      inputTitle.value = "";
-      inputBody.value = "";
+      form.reset();
     });
   });
 }

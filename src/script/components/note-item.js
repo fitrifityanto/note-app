@@ -48,9 +48,22 @@ class NoteItem extends HTMLElement {
             flex-direction: column;
             gap: 0.7rem;
         }
+        .note-item > .noteitem-main > h3 {
+          font-size: 1.1875rem;
+          font-weight: 500;
+        }
+        .note-item > .noteitem-main > p {
+            font-size: 0.975rem;
+            font-weight: 300;
+        }
         .note-item > .noteitem-footer {
-            font-size: smaller;
+            font-size: 0.75rem;
             color: gray;
+        }
+        .noteitem-button {
+          display: flex;
+          justify-content: flex-end;
+          gap: 0.2rem;
         }     
         `;
   }
@@ -71,8 +84,6 @@ class NoteItem extends HTMLElement {
                 <div class="noteitem-footer"><p>${formattedDate} </p>
                 </div>
                 <div class="noteitem-button">
-
-                 
                 </div>
             </div>
         `;

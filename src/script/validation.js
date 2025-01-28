@@ -48,6 +48,7 @@ export function validation() {
       );
       return;
     }
+    event.target.reportValidity();
   };
 
   titleInput.addEventListener("change", customValidationTitleHandler);

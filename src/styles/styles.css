@@ -9,6 +9,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--cl-accent) transparent;
 }
 
 body {
@@ -18,6 +21,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  font-weight: 300;
 }
 
 header {
@@ -29,6 +34,20 @@ header {
   z-index: 1000;
 }
 
+main {
+  width: 100%;
+
+  overflow-y: auto;
+  padding: 1rem;
+
+  background-color: var(--cl-bg-main);
+}
+
+aside {
+  width: 300px;
+  padding: 2rem 1.4rem;
+}
+
 .content {
   width: 100%;
   max-width: 1200px;
@@ -36,11 +55,6 @@ header {
   display: flex;
   flex: 1;
   overflow: hidden;
-}
-
-aside {
-  width: 300px;
-  padding: 2rem 1.4rem;
 }
 
 .sidebar {
@@ -81,15 +95,6 @@ aside {
   cursor: pointer;
 }
 
-main {
-  width: 100%;
-
-  overflow-y: auto;
-  padding: 1rem;
-
-  background-color: var(--cl-bg-main);
-}
-
 label {
   display: inline-block;
   margin-block-end: 0.3rem;
@@ -97,19 +102,30 @@ label {
 
 input {
   display: block;
-  padding: 0.5rem 0.5rem;
-  border: 1px solid black;
+  padding: 0.6rem 0.6rem;
+  border: 1px solid var(--cl-bg-main);
   border-radius: 4px;
 
   width: 100%;
 }
 
+input:focus,
+textarea:focus,
+button:focus {
+  border: 1px solid var(--cl-accent);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
 textarea {
   width: 100%;
 
-  padding: 0.5rem 0.5rem;
-  border: 1px solid black;
+  padding: 0.6rem 0.6rem;
+  border: 1px solid var(--cl-bg-main);
   border-radius: 4px;
+
+  font-size: 0.975rem;
+  font-family: sans-serif;
 }
 
 button {
@@ -155,7 +171,7 @@ button {
 
   border-radius: 0.3rem;
   padding: 0.5rem 1.5rem;
-  border: 1px solid --cl-accent;
+  border: 1px solid var(--cl-accent);
 }
 
 .btn:hover {
@@ -163,19 +179,14 @@ button {
   color: white;
 }
 
-.noteitem-button {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.2rem;
-}
-
 .btn:active {
-  background-color: #98ded9;
+  background-color: var(--cl-nd-accent);
   color: black;
 }
 
 .validation-message {
   margin-block-start: 0.5rem;
+  font-size: 0.8rem;
   color: red;
 }
 
@@ -183,17 +194,16 @@ input:user-invalid {
   border: 1px solid red;
 }
 
-.list {
+.list,
+.loading {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: auto;
   gap: 1rem;
 }
 
-.loading {
-  display: block;
-  width: 250px;
-  height: 100px;
+.loading > * {
+  height: 150px;
   border-radius: 8px;
   background: linear-gradient(45deg, #dcdcdc, #f0f0f0, #e0e0e0, #dcdcdc);
   background-size: 400% 400%;
@@ -260,11 +270,6 @@ footer {
 }
 
 /* custom scrollbar */
-
-* {
-  scrollbar-width: thin; /* Untuk Firefox */
-  scrollbar-color: var(--cl-accent) transparent;
-}
 
 ::-webkit-scrollbar {
   width: 8px;

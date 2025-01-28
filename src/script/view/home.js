@@ -152,7 +152,6 @@ const removeNote = async (noteId, callback) => {
     const data = await response.json();
 
     await animeOutFromNote(noteItem);
-
     if (callback) callback();
   } catch (error) {
     showResponseMessage(error, "error");
@@ -273,6 +272,7 @@ const displayArsipNotes = (notes) => {
       );
       if (isConfirmed) {
         await removeNote(note.id, () => {
+          animeOutFromNote(noteItem);
           getArsip();
         });
       }

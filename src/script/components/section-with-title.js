@@ -15,16 +15,19 @@ class SectionWithTitle extends HTMLElement {
 
   _updateStyle() {
     this._style.textContent = `
-
         .title-section {
-            font-size: 1.2rem;
-            margin-block-end: 1rem;
-        }
-
+          margin-block-end: 1rem;
+          }
+        
         .title-section-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          }
+          
+        .title-section-wrapper > h2 {
+          font-size: 1.28rem;
+          font-weight: 500;
         }
 
         `;

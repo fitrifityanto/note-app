@@ -19,9 +19,7 @@ export default function Layout(content) {
     </div>
     
     <footer>
-      <div class="container">
         <footer-bar></footer-bar>
-      </div>
     </footer>
     `;
 }

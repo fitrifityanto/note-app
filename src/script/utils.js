@@ -29,12 +29,14 @@ export const animeToNote = (element) => {
   });
 };
 
-export const animeOutFromNote = (element) => {
-  anime({
+export const animeOutFromNote = async (element) => {
+  await anime({
     targets: element,
     scale: [1, 0],
     opacity: [1, 0],
     duration: 500,
     easing: "easeInQuad",
   }).finished;
+
+  element.remove();
 };

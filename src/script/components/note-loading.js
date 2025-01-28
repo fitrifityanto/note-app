@@ -23,7 +23,11 @@ class NoteLoading extends HTMLElement {
     this._emptyContent();
 
     this.innerHTML += `
-      <div class="loading"></div>
+      <div class="loading">
+      <div></div>
+      <div></div>
+      <div></div>
+      </div>
         `;
   }
 
